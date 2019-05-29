@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ServiceBase.Config;
 using ServiceBase.Infrastructure;
 using ServiceBase.Init;
 
@@ -41,10 +42,11 @@ namespace ServiceBase
             
             //options are configured in Config.ConfigureJwtBearerOptions
             //We only need the authorization bit of the token (the claims) the authentication is not really needed as this is a microservice.
+            //services.AddSingleton<IPostConfigureOptions<JwtBearerOptions>, ConfigureJwtBearerOptions>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer();
 
-            services.AddAutoMapper();
+            services.AddAutoMapper(typeof(InfrastructureProfile), typeof(ApiProfile));
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -70,6 +72,13 @@ namespace ServiceBase
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            
+            builder.Register<JwtAuthentication>(ctx =>
+            {
+                var section =  Configuration.GetSection("JwtAuthentication");
+                return section.Get<JwtAuthentication>();
+            }).SingleInstance();
+            builder.RegisterType<ConfigureJwtBearerOptions>().As<IPostConfigureOptions<JwtBearerOptions>>();
             builder.RegisterType<DbMigrationTask>().As<IStartupTask>();
             builder.RegisterModule(new InfrastructureModule());
         }

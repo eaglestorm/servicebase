@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace ServiceBase.Controllers
             //we are just returning data and because the domain contains all the business logic we can just get the model 
             //and serialize the properties.
             var examples = _exampleRepository.Get(0, 10);       
-            return new JsonResult(examples);
+            return new JsonResult(_mapper.Map<List<ExampleDto>>(examples));
         }
 
         [Authorize]

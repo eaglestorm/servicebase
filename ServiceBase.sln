@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBase.Core.Test", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBase.Db", "ServiceBase.Db\ServiceBase.Db.csproj", "{617CB71E-6A8A-447F-8EAA-ECFCB4502B75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBase.Integration.Test", "Tests\ServiceBase.Integration.Test\ServiceBase.Integration.Test.csproj", "{9A4B95B7-491C-40EF-8E51-65CC6799780C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,8 +47,13 @@ Global
 		{617CB71E-6A8A-447F-8EAA-ECFCB4502B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617CB71E-6A8A-447F-8EAA-ECFCB4502B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617CB71E-6A8A-447F-8EAA-ECFCB4502B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4B95B7-491C-40EF-8E51-65CC6799780C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4B95B7-491C-40EF-8E51-65CC6799780C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4B95B7-491C-40EF-8E51-65CC6799780C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4B95B7-491C-40EF-8E51-65CC6799780C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1718B9D1-B8FB-4EA4-85F6-902941ABDC8E} = {0808D4A9-CEC6-4D65-9D1F-381FA291F7DC}
+		{9A4B95B7-491C-40EF-8E51-65CC6799780C} = {0808D4A9-CEC6-4D65-9D1F-381FA291F7DC}
 	EndGlobalSection
 EndGlobal

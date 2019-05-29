@@ -8,23 +8,23 @@ namespace ServiceBase.Config
 {
     public class ConfigureJwtBearerOptions: IPostConfigureOptions<JwtBearerOptions>
     {
-        private readonly IOptions<JwtAuthentication> _jwtAuthentication;
+        private readonly JwtAuthentication _jwtAuthentication;
 
-        public ConfigureJwtBearerOptions(IOptions<JwtAuthentication> jwtAuthentication)
+        public ConfigureJwtBearerOptions(JwtAuthentication jwtAuthentication)
         {
             _jwtAuthentication = jwtAuthentication ?? throw new System.ArgumentNullException(nameof(jwtAuthentication));
         }
 
         public void PostConfigure(string name, JwtBearerOptions options)
         {
-            var jwtAuthentication = _jwtAuthentication.Value;
+            var jwtAuthentication = _jwtAuthentication;
 
             options.ClaimsIssuer = jwtAuthentication.ValidIssuer;
             options.IncludeErrorDetails = true;
             options.RequireHttpsMetadata = true;
             options.TokenValidationParameters = new TokenValidationParameters
             {
-                ValidateActor = true,
+                ValidateActor = false,
                 ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateLifetime = true,
