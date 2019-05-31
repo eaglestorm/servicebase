@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Njant.ServiceBase</id>
+        <version>1.0.0</version>
+        <description>
+            Creates a Clean Architecture based micro service template.
+        </description>
+        <authors>Phillip Sanderson</authors>
+        <packageTypes>
+            <packageType name="Template" />
+        </packageTypes>
+    </metadata>
+    <files>
+        <file src="CleanDdd.Common\**\*.*" exclude="CleanDdd.Common\**\*.dll" target="Content\CleanDdd.Common" />
+        <file src="ServiceBase.Api\**\*.*" exclude="ServiceBase.Api\**\*.dll" target="Content\ServiceBase.Api"/>
+        <file src="ServiceBase.Core\**\*.*" exclude="ServiceBase.Core\**\*.dll" target="Content\ServiceBase.Core" />
+        <file src="ServiceBase.Db\**\*.*" exclude="ServiceBase.Db\**\*.dll" target="Content\ServiceBase.Db" />
+        <file src="ServiceBase.Infrastructure\**\*.*" exclude="ServiceBase.Infrastructure\**\*.dll" target="Content\ServiceBase.Infrastructure" />
+        <file src="Tests\**\*.*" exclude="Tests\**\*.dll" target="Content\Tests" />
+        <file src=".gitignore" target="Content" />
+        <file src="ServiceBase.sln" target="Content" />
+        <file src=".template.config\**\*.*" target="Content\.template.config" />
+    </files>
+</package>
