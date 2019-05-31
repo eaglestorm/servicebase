@@ -1,7 +1,7 @@
-#ServiceBase
+# ServiceBase
 MicroService .Net Core Template using Clean Architecture and Domain Events.
 
-##Structure
+## Structure
 The structure is broken into three main projects.
 * ServiceBase.Core - The Domain Model and Use Cases
 * ServiceBase.Infrastructure - Persistent storage and third party access.
